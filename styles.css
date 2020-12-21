@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Open+Sans:wght@600&display=swap");
+/* line 3, styles.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 7, styles.scss */
+body {
+  background: linear-gradient(#af6322, #e9bd6d);
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  counter-reset: track;
+  overflow: hidden;
+}
+
+/* line 15, styles.scss */
+#wrapper {
+  width: 92vw;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.2fr;
+  gap: 10px;
+}
+
+/* line 25, styles.scss */
+#album-img {
+  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.575);
+}
+
+/* line 32, styles.scss */
+#album-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+/* line 37, styles.scss */
+#album-info > * + * {
+  margin-top: 10px;
+}
+/* line 40, styles.scss */
+#album-info .album-artist {
+  font-size: 32px;
+}
+/* line 43, styles.scss */
+#album-info .album-name {
+  font-size: 24px;
+}
+
+/* line 48, styles.scss */
+#album-tracklist {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+}
+/* line 52, styles.scss */
+#album-tracklist > * + * {
+  border-top: 1px solid #cccccc2d;
+}
+/* line 55, styles.scss */
+#album-tracklist .album-track:first-child {
+  padding-bottom: 20px;
+}
+/* line 58, styles.scss */
+#album-tracklist .album-track {
+  padding: 20px 0px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+/* line 63, styles.scss */
+#album-tracklist .album-track div {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+/* line 67, styles.scss */
+#album-tracklist .album-track div i {
+  margin-left: 10px;
+  font-size: 20px;
+  display: none;
+  transition: 0.2s;
+}
+/* line 74, styles.scss */
+#album-tracklist .album-track:hover {
+  background-color: #cccccc1a;
+}
+/* line 76, styles.scss */
+#album-tracklist .album-track:hover i {
+  display: block;
+}
+/* line 81, styles.scss */
+#album-tracklist .album-track h1 {
+  font-size: 20px;
+  position: relative;
+}
+/* line 84, styles.scss */
+#album-tracklist .album-track h1::before {
+  counter-increment: track;
+  content: counter(track);
+  font-size: 16px;
+  opacity: .4;
+  margin: 0px 20px;
+}
+
+/* line 95, styles.scss */
+#song-lyrics {
+  padding: 0 1.5rem;
+  overflow: hidden;
+}
+/* line 97, styles.scss */
+#song-lyrics div > * + * {
+  margin-top: 30px;
+}
+/* line 100, styles.scss */
+#song-lyrics div {
+  transition: all 0.3s ease;
+}
+/* line 104, styles.scss */
+#song-lyrics p {
+  cursor: pointer;
+  font-size: 30px;
+  opacity: .5;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+/* line 111, styles.scss */
+#song-lyrics p.active {
+  opacity: 1;
+  color: inherit;
+  text-shadow: none;
+}

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Open+Sans:wght@600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: linear-gradient(#af6322, #e9bd6d);
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  counter-reset: track;
+  overflow: hidden;
+}
+
+#wrapper{
+  width: 92vw;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.2fr;
+  gap: 10px;
+  > * + * {
+    // border-left: 1px solid #cccccc2d;
+  }
+}
+#album-img{
+  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.575);
+}
+#album-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+  > * + *{
+    margin-top: 10px;
+  }
+  .album-artist{
+    font-size: 32px;
+  }
+  .album-name{
+    font-size: 24px;
+  }
+}
+
+#album-tracklist{
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+  > * + *{
+    border-top: 1px solid #cccccc2d;
+  }
+  .album-track:first-child{
+    padding-bottom: 20px;
+  }
+  .album-track{
+    padding: 20px 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    div{
+      display: flex;
+      position: relative;
+      align-items: center;
+      i{
+        margin-left: 10px;
+        font-size: 20px;
+        display: none;
+        transition: 0.2s;
+      }
+    }
+    &:hover{
+      background-color:  #cccccc1a;
+      i{
+        display:block;
+        // position:absolute;
+      }
+    }
+    h1{
+      font-size: 20px;
+      position: relative;
+      &::before{
+        counter-increment: track;
+        content: counter(track);
+        font-size: 16px;
+        opacity: .4;
+        margin: 0px 20px;
+      }
+    }
+  }
+}
+
+#song-lyrics{
+  padding: 0 1.5rem;
+  div > * + * {
+    margin-top: 30px;
+  }
+  div{
+    transition: all 0.3s ease;
+  }
+  overflow: hidden;
+  p{
+    cursor: pointer;
+    font-size: 30px;
+    opacity: .5;
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+  p.active{
+    opacity: 1;
+    color: inherit;
+    text-shadow: none;
+  }
+}
